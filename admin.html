@@ -7,6 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
   <style>
+    body {
+      background-color: #f5f5f5;
+    }
+    
     .login-container {
       max-width: 400px;
       margin: 100px auto;
@@ -14,6 +18,12 @@
       background: white;
       border-radius: 8px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .admin-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
     
     .form-group {
@@ -34,23 +44,49 @@
       font-size: 1rem;
     }
     
-    .admin-container {
-      padding: 2rem;
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
     }
     
     .admin-panel {
       background: white;
       border-radius: 8px;
-      padding: 2rem;
+      padding: 1.5rem;
       margin-bottom: 2rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    
+    .btn-danger {
+      background-color: #f44336;
+      color: white;
+    }
+    
+    .btn-danger:hover {
+      background-color: #d32f2f;
+    }
+    
+    .btn-success {
+      background-color: #4caf50;
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background-color: #388e3c;
+    }
+    
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div id="login-page">
+  <!-- Login Section -->
+  <div id="login-section">
     <div class="login-container">
-      <h2 class="text-center">WindowEdu Admin</h2>
+      <h2 style="text-align: center; margin-bottom: 1.5rem;">WindowEdu Admin</h2>
       
       <div class="form-group">
         <label for="username">Username</label>
@@ -62,6 +98,163 @@
         <input type="password" id="password" class="form-control">
       </div>
       
-      <button onclick="attemptLogin()" class="btn btn-primary" style="width:100%">Login</button>
+      <button onclick="login()" class="btn btn-primary" style="width:100%">Login</button>
     </div>
   </div>
+
+  <!-- Admin Panel Section -->
+  <div id="admin-section" class="hidden">
+    <div class="admin-container">
+      <div class="admin-header">
+        <h1>WindowEdu Admin Panel</h1>
+        <a href="index.html" class="btn btn-danger">Exit Admin</a>
+      </div>
+      
+      <!-- Edit Program Description -->
+      <div class="admin-panel">
+        <h2 style="margin-bottom: 1rem;">Edit 15-Day Program Description</h2>
+        <div class="form-group">
+          <textarea id="program-description-editor" rows="6" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-success" onclick="saveDescription()">Save Description</button>
+      </div>
+      
+      <!-- Edit Today's Activities -->
+      <div class="admin-panel">
+        <h2 style="margin-bottom: 1rem;">Edit Today's Activities</h2>
+        
+        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+          <div class="form-group" style="flex: 1;">
+            <label for="current-day">Current Day</label>
+            <select id="current-day" class="form-control">
+              <option value="1">Day 1</option>
+              <option value="2">Day 2</option>
+              <option value="3">Day 3</option>
+              <option value="4">Day 4</option>
+              <option value="5" selected>Day 5</option>
+              <option value="6">Day 6</option>
+              <option value="7">Day 7</option>
+              <option value="8">Day 8</option>
+              <option value="9">Day 9</option>
+              <option value="10">Day 10</option>
+              <option value="11">Day 11</option>
+              <option value="12">Day 12</option>
+              <option value="13">Day 13</option>
+              <option value="14">Day 14</option>
+              <option value="15">Day 15</option>
+            </select>
+          </div>
+          
+          <div class="form-group" style="flex: 1;">
+            <label for="current-date">Current Date</label>
+            <input type="date" id="current-date" value="2025-05-05" class="form-control">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="youtube-video">YouTube Video</label>
+          <input type="text" id="youtube-video" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="current-affairs">Current Affairs</label>
+          <input type="text" id="current-affairs" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="seven-day-activity">7-Day Challenge Activity</label>
+          <input type="text" id="seven-day-activity" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="fourteen-day-activity">14-Day Challenge Activity</label>
+          <input type="text" id="fourteen-day-activity" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="daily-exam">Daily Exam</label>
+          <input type="text" id="daily-exam" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="community-activities">Community Activities</label>
+          <input type="text" id="community-activities" class="form-control">
+        </div>
+        
+        <button class="btn btn-success" onclick="saveActivities()">Save Today's Activities</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Admin credentials
+    const USERNAME = "admin";
+    const PASSWORD = "windowedu2025";
+    
+    // Login function
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      if (username === USERNAME && password === PASSWORD) {
+        document.getElementById('login-section').classList.add('hidden');
+        document.getElementById('admin-section').classList.remove('hidden');
+        
+        // Load content for editing
+        loadContent();
+      } else {
+        alert("Invalid username or password");
+      }
+    }
+    
+    // Load content from localStorage or defaults
+    function loadContent() {
+      // Try to load from localStorage first
+      const storedDescription = localStorage.getItem('programDescription');
+      if (storedDescription) {
+        document.getElementById('program-description-editor').value = storedDescription;
+      }
+      
+      const youtubeVideo = localStorage.getItem('youtubeVideo') || '7-Day Challenge Midpoint Strategies';
+      const currentAffairs = localStorage.getItem('currentAffairs') || 'Economy Focus - New policies announced in Budget';
+      const sevenDayActivity = localStorage.getItem('sevenDayActivity') || 'Midpoint assessment and strategy refinement';
+      const fourteenDayActivity = localStorage.getItem('fourteenDayActivity') || 'Connection module on cross-topic integration';
+      const dailyExam = localStorage.getItem('dailyExam') || '5-minute assessment at 9 PM - Focus on strategy application';
+      const communityActivities = localStorage.getItem('communityActivities') || 'Strategy sharing poll on Telegram, Midpoint celebration on WhatsApp';
+      
+      document.getElementById('youtube-video').value = youtubeVideo;
+      document.getElementById('current-affairs').value = currentAffairs;
+      document.getElementById('seven-day-activity').value = sevenDayActivity;
+      document.getElementById('fourteen-day-activity').value = fourteenDayActivity;
+      document.getElementById('daily-exam').value = dailyExam;
+      document.getElementById('community-activities').value = communityActivities;
+    }
+    
+    // Save program description
+    function saveDescription() {
+      const description = document.getElementById('program-description-editor').value;
+      localStorage.setItem('programDescription', description);
+      alert("Program description saved! To update the main page, go to index.html and update the content.");
+    }
+    
+    // Save today's activities
+    function saveActivities() {
+      const youtubeVideo = document.getElementById('youtube-video').value;
+      const currentAffairs = document.getElementById('current-affairs').value;
+      const sevenDayActivity = document.getElementById('seven-day-activity').value;
+      const fourteenDayActivity = document.getElementById('fourteen-day-activity').value;
+      const dailyExam = document.getElementById('daily-exam').value;
+      const communityActivities = document.getElementById('community-activities').value;
+      
+      localStorage.setItem('youtubeVideo', youtubeVideo);
+      localStorage.setItem('currentAffairs', currentAffairs);
+      localStorage.setItem('sevenDayActivity', sevenDayActivity);
+      localStorage.setItem('fourteenDayActivity', fourteenDayActivity);
+      localStorage.setItem('dailyExam', dailyExam);
+      localStorage.setItem('communityActivities', communityActivities);
+      
+      alert("Today's activities saved! To update the main page, go to index.html and update the content.");
+    }
+  </script>
+</body>
+</html>
