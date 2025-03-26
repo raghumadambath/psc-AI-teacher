@@ -116,7 +116,17 @@ p {
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(139, 195, 74, 0.3);
 }
+.btn-tertiary {
+  background-color: #9c27b0;
+  color: white;
+  box-shadow: 0 4px 6px rgba(156, 39, 176, 0.25);
+}
 
+.btn-tertiary:hover {
+  background-color: #8e24aa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(156, 39, 176, 0.3);
+}
 .icon {
   margin: 0 0.5rem;
 }
