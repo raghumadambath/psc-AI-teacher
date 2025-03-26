@@ -23,5 +23,19 @@ function goToTodaysProgram() {
     }, 100);
   }
 }
+// Admin access via keyboard shortcut (Ctrl+Shift+A)
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+    openAdminModal();
+  }
+});
+
+// Admin modal functions (backup in case admin.js doesn't load properly)
+function openAdminModal() {
+  const adminModal = document.getElementById('admin-modal');
+  if (adminModal) {
+    adminModal.classList.remove('hidden');
+  }
+}
 
 // Will add more functionality later
