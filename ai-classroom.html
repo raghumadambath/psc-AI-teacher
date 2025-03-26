@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Teacher Personal Classroom - WindowEdu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    .gpt-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .gpt-card .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .gpt-card .card-text {
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+    
+    .gpt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .gpt-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1e88e5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header with Logo -->
+    <header class="header">
+      <div class="logo-container">
+        <img src="logo.png" alt="WindowEdu Logo" class="logo">
+      </div>
+      <h1 class="title">AI Teacher Personal Classroom</h1>
+      <p class="subtitle">Your 24/7 AI Teaching Assistants for PSC Exam Preparation</p>
+    </header>
+    
+    <!-- Brief Description -->
+    <section class="card">
+      <p>Welcome to your AI Teacher Personal Classroom! Here you'll find specialized AI teaching assistants designed to help you with different aspects of your PSC exam preparation.</p>
+      <p>Each AI assistant is custom-trained to provide expert guidance in specific areas. Simply click on the assistant that matches your current needs.</p>
+    </section>
+    
+    <!-- AI Teacher GPT Links -->
+    <div class="gpt-grid">
+      <!-- 7-Day Challenge GPT -->
+      <div class="card gpt-card">
+        <div class="card-body">
+          <div class="gpt-icon">🧠</div>
+          <h2 class="card-title">Anxiety Master</h2>
+          <p class="card-text">Specialized AI assistant for the 7-Day Exam Anxiety Challenge. Get personalized techniques to overcome test anxiety and perform at your best.</p>
+          <a href="#" class="btn btn-primary">Open AI Assistant</a>
+        </div>
+      </div>
+      
+      <!-- 14-Day Challenge GPT -->
+      <div class="card gpt-card">
+        <div class="card-body">
+          <div class="gpt-icon">📚</div>
+          <h2 class="card-title">Kerala History Master</h2>
+          <p class="card-text">Comprehensive AI assistant for the 14-Day Kerala History Challenge. Ask detailed questions about any period of Kerala history.</p>
+          <a href="#" class="btn btn-primary">Open AI Assistant</a>
+        </div>
+      </div>
+      
+      <!-- Current Affairs GPT -->
+      <div class="card gpt-card">
+        <div class="card-body">
+          <div class="gpt-icon">🗞️</div>
+          <h2 class="card-title">Current Affairs Guide</h2>
+          <p class="card-text">Stay updated with the most important current events related to PSC exams. Find explanations for how recent events connect to exam topics.</p>
+          <a href="#" class="btn btn-primary">Open AI Assistant</a>
+        </div>
+      </div>
+      
+      <!-- How to Join GPT -->
+      <div class="card gpt-card">
+        <div class="card-body">
+          <div class="gpt-icon">❓</div>
+          <h2 class="card-title">Program Guide</h2>
+          <p class="card-text">Have questions about how to join or navigate the program? This assistant will guide you through all aspects of the 15-Day Challenge.</p>
+          <a href="#" class="btn btn-primary">Open AI Assistant</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Community Links -->
+    <section class="card">
+      <h2 class="card-title">Join Our Community</h2>
+      <p>Connect with fellow aspirants and get access to additional resources and support.</p>
+      <div class="action-buttons">
+        <a href="#" class="btn btn-primary">
+          <span class="icon">💬</span>
+          Join Telegram Community
+        </a>
+        <a href="#" class="btn btn-secondary">
+          <span class="icon">📱</span>
+          Download WindowEdu App
+        </a>
+      </div>
+    </section>
+    
+    <!-- Premium Course Access -->
+    <section class="card">
+      <h2 class="card-title">Upgrade to Premium Course</h2>
+      <p>Get access to our full course with live classes, recorded sessions, personal mentoring, and unlimited AI teacher access.</p>
+      <ul class="features-list">
+        <li>Live interactive classes with expert faculty</li>
+        <li>Comprehensive recorded sessions for flexible learning</li>
+        <li>Personal mentoring and doubt clearing</li>
+        <li>Unlimited access to all AI teaching assistants</li>
+        <li>Personalized study plans and progress tracking</li>
+      </ul>
+      <div class="card-action">
+        <a href="#" class="btn btn-primary">Register for Premium Course</a>
+      </div>
+    </section>
+    
+    <!-- Back Button -->
+    <div class="text-center">
+      <a href="index.html" class="btn btn-primary">
+        <span class="icon">←</span>
+        Back to Main Page
+      </a>
+    </div>
+  </div>
+</body>
+</html>
