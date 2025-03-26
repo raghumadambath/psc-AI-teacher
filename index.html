@@ -260,5 +260,109 @@
     </button>
   </div>
 </div>
+  <!-- Admin Login Modal (Hidden by default) -->
+<div id="admin-modal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Admin Login</h3>
+      <button onclick="closeAdminModal()" class="close-btn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control">
+      </div>
+      <button type="button" onclick="loginAdmin()" class="btn btn-primary">Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Panel (Hidden by default) -->
+<div id="admin-panel" class="hidden">
+  <div class="container">
+    <div class="admin-header">
+      <h2>WindowEdu Admin Panel</h2>
+      <button onclick="logoutAdmin()" class="btn btn-danger">Logout</button>
+    </div>
+    
+    <!-- Edit Program Description -->
+    <div class="card">
+      <h3 class="card-title">Edit 15-Day Program Description</h3>
+      <div class="form-group">
+        <textarea id="program-description-editor" rows="6" class="form-control"></textarea>
+      </div>
+      <button class="btn btn-success" onclick="saveDescription()">Save Description</button>
+    </div>
+    
+    <!-- Edit Today's Activities -->
+    <div class="card">
+      <h3 class="card-title">Edit Today's Activities</h3>
+      
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="current-day">Current Day</label>
+          <select id="current-day" class="form-control">
+            <option value="1">Day 1</option>
+            <option value="2">Day 2</option>
+            <option value="3">Day 3</option>
+            <option value="4">Day 4</option>
+            <option value="5" selected>Day 5</option>
+            <option value="6">Day 6</option>
+            <option value="7">Day 7</option>
+            <option value="8">Day 8</option>
+            <option value="9">Day 9</option>
+            <option value="10">Day 10</option>
+            <option value="11">Day 11</option>
+            <option value="12">Day 12</option>
+            <option value="13">Day 13</option>
+            <option value="14">Day 14</option>
+            <option value="15">Day 15</option>
+          </select>
+        </div>
+        
+        <div class="form-group half">
+          <label for="current-date">Current Date</label>
+          <input type="date" id="current-date" value="2025-05-05" class="form-control">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="youtube-video">YouTube Video</label>
+        <input type="text" id="youtube-video" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="current-affairs">Current Affairs</label>
+        <input type="text" id="current-affairs" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="seven-day-activity">7-Day Challenge Activity</label>
+        <input type="text" id="seven-day-activity" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="fourteen-day-activity">14-Day Challenge Activity</label>
+        <input type="text" id="fourteen-day-activity" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="daily-exam">Daily Exam</label>
+        <input type="text" id="daily-exam" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="community-activities">Community Activities</label>
+        <input type="text" id="community-activities" class="form-control">
+      </div>
+      
+      <button class="btn btn-success" onclick="saveTodayActivities()">Save Today's Activities</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
