@@ -4,16 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WindowEdu PSC-AI Teacher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="main-page">
-    <!-- Main page content will go here -->
+  <!-- Main Page -->
+  <div id="main-page" class="container">
+    <!-- Header with Logo -->
+    <header class="header">
+      <div class="logo-container">
+        <img src="logo.png" alt="WindowEdu Logo" class="logo">
+      </div>
+      <h1 class="title">PSC-AI Teacher</h1>
+      <p class="subtitle">Your 24/7 Companion for PSC Exam Preparation</p>
+    </header>
+
+    <!-- App Download and PSC Hub Buttons -->
+    <div class="action-buttons">
+      <a href="#" class="btn btn-primary">
+        <span class="icon">📱</span>
+        Download WindowEdu App
+      </a>
+      <a href="#" class="btn btn-secondary">
+        <span class="icon">🎓</span>
+        Visit PSC Hub
+      </a>
+    </div>
+
+    <!-- How to Join the Programme -->
+    <section class="card">
+      <h2 class="card-title">How to Join the Programme</h2>
+      <div class="message-board">
+        <p>Join our 15-Day Success Challenge in 3 simple steps:</p>
+        <ol class="steps-list">
+          <li>Download the WindowEdu App from the button above</li>
+          <li>Register with your phone number and email</li>
+          <li>Enroll in the free "15-Day Success Challenge" course</li>
+        </ol>
+        <p class="highlight">New cycle starting on May 1, 2025!</p>
+        <div class="card-action">
+          <a href="#" class="btn btn-primary">Register Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15-Day Program Description -->
+    <section class="card">
+      <h2 class="card-title">15-Day Success Challenge Program</h2>
+      <div id="program-description">
+        <p>Welcome to our 15-Day Success Challenge - a proven system to improve your PSC exam performance!</p>
+        <p>This program combines a 7-day quick-win challenge and a 14-day subject mastery track with daily exams and current affairs updates.</p>
+        <p>Each day, you'll receive structured learning content, participate in community activities, and track your improvement with our assessment system.</p>
+        <p class="highlight">New cycle starting soon! Register now in the WindowEdu App.</p>
+      </div>
+    </section>
+
+    <!-- Today's Activities -->
+    <section class="card">
+      <div class="card-header">
+        <h2 class="card-title">What's Happening Today</h2>
+        <span class="badge">Day 5</span>
+      </div>
+      <div id="today-activities" class="message-board">
+        <p><strong>YouTube Video:</strong> 7-Day Challenge Midpoint Strategies</p>
+        <p><strong>Current Affairs:</strong> Economy Focus - New policies announced in Budget</p>
+        <p><strong>7-Day Challenge:</strong> Midpoint assessment and strategy refinement</p>
+        <p><strong>14-Day Challenge:</strong> Connection module on cross-topic integration</p>
+        <p><strong>Daily Exam:</strong> 5-minute assessment at 9 PM - Focus on strategy application</p>
+        <p><strong>Community:</strong> Strategy sharing poll on Telegram, Midpoint celebration on WhatsApp</p>
+      </div>
+      <div class="card-action">
+        <a href="#current-day" onclick="goToTodaysProgram()" class="btn btn-secondary">Go to Today's Programme</a>
+      </div>
+    </section>
+
+    <!-- View Full Program Button -->
+    <div class="text-center">
+      <button id="view-full-program" class="btn btn-primary" onclick="showProgramDetails()">
+        View Full 15-Day Program Details
+        <span class="icon">→</span>
+      </button>
+    </div>
   </div>
-  
-  <div id="program-details" class="hidden">
-    <!-- Program details will go here -->
+
+  <!-- Program Details Page (Hidden Initially) -->
+  <div id="program-details" class="container hidden">
+    <!-- Content for program details will be added later -->
+    <button onclick="showMainPage()" class="btn btn-primary">
+      <span class="icon">←</span>
+      Back to Main Page
+    </button>
   </div>
 </body>
 </html>
